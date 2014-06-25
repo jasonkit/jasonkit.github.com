@@ -23,7 +23,15 @@ Handlebars.registerHelper("formatDate", function(date, lang){
     }
 });
 
+var list_file = function(files, metalsmith, done){
+    for (var file in files) {
+        console.log(file);
+    }
+    done();
+};
+
 Metalsmith(__dirname)
+    .clean(false)
     .use(collections({
         pages: {
             pattern: "content/pages/*.md"
@@ -40,5 +48,6 @@ Metalsmith(__dirname)
     }))
     .use(templates("handlebars"))
     .use(sass({outputStyle: "expanded"}))
-    .destination("./build")
-    .build()
+    .destination("../")
+    .use(list_file)
+    .build();

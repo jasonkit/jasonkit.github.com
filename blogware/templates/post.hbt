@@ -1,11 +1,12 @@
 {{>header}}
-<div class="article_header">
+<div class="article_header" data-title-img="{{title_image}}">
     <div class="article_header_content">
         <h1>{{title}}</h1> 
         <time>{{formatDate date chinese}}</time>
     </div>
 </div>
-<article data-title-img="{{title_image}}">
+
+<article>
     {{{contents}}}
     <hr/>
 </article>
@@ -15,8 +16,8 @@
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'jasonkit-blog'; // required: replace example with your forum shortname
-    var disqus_title = "{{title}}";
+    var disqus_shortname = "jasonkit-blog"; // required: replace example with your forum shortname
+    var disqus_title = "{{short_title}}";
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

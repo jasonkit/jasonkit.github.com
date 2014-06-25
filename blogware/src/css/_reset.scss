@@ -32,6 +32,9 @@ body {
     color           : $text_color;
     font-family     : 'Lato', 'wt011', sans-serif;
     font-size       : $default_font_size;
+    @media only screen and (min-width: $break_point) {
+      font-size       : $default_font_size_desktop;
+    }
     line-height     :1;
 }
 

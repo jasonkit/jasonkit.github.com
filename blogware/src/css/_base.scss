@@ -1,7 +1,7 @@
 $bg_color   : #F9F9F9;
 $text_color : #333333;
 $text_color_highlight : rgba(51, 51, 51, 0.6);
-$header_bg_color      : rgba(255,255,255,0.6);
+$header_bg_color      : rgba(255,255,255,0.7);
 $cell_bg_color        : rgba(230, 230, 230, 0.3);
 $cell_border_color    : rgba(200, 200, 200, 0.5);
 $shadow_color         : rgba(128, 128, 128, 0.5);
@@ -22,6 +22,10 @@ $cell_line_height: 14pt;
 
 $break_point: 500px;
 
+@import url(http://fonts.googleapis.com/css?family=Lato:300);
+@import url(http://fonts.googleapis.com/css?family=Raleway:500);
+@import url(http://fonts.googleapis.com/css?family=Quicksand:400);
+
 @if $is_chinese == true {
   @font-face {
     font-family: 'wt011';
@@ -29,9 +33,6 @@ $break_point: 500px;
   }
 }
 
-@import url(http://fonts.googleapis.com/css?family=Lato:300);
-@import url(http://fonts.googleapis.com/css?family=Raleway:500);
-@import url(http://fonts.googleapis.com/css?family=Quicksand:400);
 @import "_reset";
 
 @mixin simple_transition($duration) {
@@ -80,7 +81,7 @@ header {
     font-family: 'Quicksand',sans-serif;
     line-height: $header_height;
     padding-left: 0.5em;
-    font-size: $cell_font_size;
+    font-size: $default_font_size;
     
     @media only screen and (min-width: $break_point) {
       float: left;
@@ -149,16 +150,16 @@ header {
 .article_header {
   background-size: 100%;
   background-repeat: no-repeat;
+  background-position: center top;
   position: relative;
   width: 100%;
   z-index: -1;
-  margin-bottom: 2em;
-}
+  padding-top: 50%;
+  margin-bottom: .5em;
 
-.article_header:before {
-  content: "";
-  display: block;
-  padding-top: 67%;
+  @media only screen and (min-width: $break_point) {
+    margin-bottom: 2em;
+  }
 }
 
 .article_header_content {
@@ -174,14 +175,16 @@ header {
   margin-bottom: 0.5em;
   
   @media only screen and (min-width: $break_point) {
-    margin-bottom: 2em;
+    margin-bottom: 0em;
+    padding-top: 1em;
+    padding-bottom: 1em;
   }
 
-
   h1 {
-  color: $text_color;
+    color: $text_color;
     font-family: 'Raleway','wt011',sans-serif;
     font-size: $default_font_size_desktop;
+    font-size: 22pt;
     
     @media only screen and (min-width: $break_point) {
       text-align: center;
@@ -192,8 +195,8 @@ header {
   time {
     display: block;
     color: $text_color;
-    font-size: 12pt;
     margin-top: 0.5em;
+    font-size: 14pt;
     
     @media only screen and (min-width: $break_point) {
       text-align: center;
