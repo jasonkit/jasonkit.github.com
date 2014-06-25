@@ -1,0 +1,15 @@
+{
+  "name": "jasonkit-blog",
+  "version": "0.0.1",
+  "description": "jasonkit blog based on metalsmith",
+  "author": "jasonkit <jasonkit@gmail.com>",
+  "devDependencies": {
+    "handlebars": "^2.0.0-alpha.4",
+    "metalsmith": "^0.8.0",
+    "metalsmith-collections": "^0.4.1",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-permalinks": "^0.3.2",
+    "metalsmith-sass": "^0.2.1",
+    "metalsmith-templates": "^0.5.1"
+  }
+}

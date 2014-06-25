@@ -1,0 +1,317 @@
+$bg_color   : #F9F9F9;
+$text_color : #333333;
+$text_color_highlight : rgba(51, 51, 51, 0.6);
+$header_bg_color      : rgba(255,255,255,0.6);
+$cell_bg_color        : rgba(230, 230, 230, 0.3);
+$cell_border_color    : rgba(200, 200, 200, 0.5);
+$shadow_color         : rgba(128, 128, 128, 0.5);
+
+$header_height: 25px;
+$header_height_desktop: 40px;
+
+@if $is_chinese == true {
+  $default_font_size: 14pt;
+  $default_font_size_desktop: 16pt;
+}@else{
+  $default_font_size: 16pt;
+  $default_font_size_desktop: 18pt;
+}
+
+$cell_font_size: 12pt;
+$cell_line_height: 14pt;
+
+$break_point: 500px;
+
+@if $is_chinese == true {
+  @font-face {
+    font-family: 'wt011';
+    src: url("wt011.woff") format('woff');
+  }
+}
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300);
+@import url(http://fonts.googleapis.com/css?family=Raleway:500);
+@import url(http://fonts.googleapis.com/css?family=Quicksand:400);
+@import "_reset";
+
+@mixin simple_transition($duration) {
+  -o-transition: $duration;
+  -ms-transition: $duration;
+  -moz-transition: $duration;
+  -webkit-transition: $duration;
+  transition: $duration;
+}
+
+@mixin disable_select() {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+a {
+  position: relative;
+  @include simple_transition(0.2s);
+}
+
+a:hover {
+  color: $text_color_highlight;
+}
+
+a:hover:before {
+  position: absolute;
+  left: -0.5em;
+  content: "»";
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: $header_bg_color;
+  color: $text_color;
+  width: 100%;
+  overflow: auto;
+
+  .logo {
+    @include disable_select();
+    font-family: 'Quicksand',sans-serif;
+    line-height: $header_height;
+    padding-left: 0.5em;
+    font-size: $cell_font_size;
+    
+    @media only screen and (min-width: $break_point) {
+      float: left;
+      font-size: $default_font_size_desktop;
+      padding-left: 1em;
+      line-height: $header_height_desktop;
+    }
+  }
+
+  .menu-icon {
+    @include disable_select();
+    position: absolute;
+    right: 0.5em;
+    top: 5px;
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 17px;
+    height: 15px;
+    background: linear-gradient($text_color, $text_color 20%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 40%, $text_color 40%, $text_color 60%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 80%, $text_color 80%, $text_color 100%);
+    
+    @media only screen and (min-width: $break_point) {
+      display: none;
+    }
+  }
+
+  .menu-icon:hover {
+    background: linear-gradient($text_color_highlight, $text_color_highlight 20%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 40%, $text_color_highlight 40%, $text_color_highlight 60%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 80%, $text_color_highlight 80%, $text_color_highlight 100%);
+  }
+
+  nav {
+    @include disable_select();
+    display: none;
+    
+    @media only screen and (min-width: $break_point) {
+      display: block;
+      float: right;
+      font-size: $default_font_size_desktop;
+      padding-right: 1em;
+    }
+  }
+
+  nav ul {
+    border-top: 1px solid $text_color_highlight;
+    padding-top: 10px;
+    
+    @media only screen and (min-width: $break_point) {
+      border: 0;
+      padding-top: 0;
+    }
+  }
+
+  nav ul li {
+    text-align: center;
+    margin-bottom: 10px;
+    
+    @media only screen and (min-width: $break_point) {
+      margin-bottom: 0px;
+      font-size: 14pt;
+      float: left;
+      line-height: $header_height_desktop;
+      margin-left: 1em;
+    }
+  }
+}
+
+.article_header {
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: relative;
+  width: 100%;
+  z-index: -1;
+  margin-bottom: 2em;
+}
+
+.article_header:before {
+  content: "";
+  display: block;
+  padding-top: 67%;
+}
+
+.article_header_content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: $header_bg_color;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-top: 0.25em;
+  padding-bottom: 0.25em;
+  margin-bottom: 0.5em;
+  
+  @media only screen and (min-width: $break_point) {
+    margin-bottom: 2em;
+  }
+
+
+  h1 {
+  color: $text_color;
+    font-family: 'Raleway','wt011',sans-serif;
+    font-size: $default_font_size_desktop;
+    
+    @media only screen and (min-width: $break_point) {
+      text-align: center;
+      font-size: 32pt;
+    }
+  }
+
+  time {
+    display: block;
+    color: $text_color;
+    font-size: 12pt;
+    margin-top: 0.5em;
+    
+    @media only screen and (min-width: $break_point) {
+      text-align: center;
+      font-size: $default_font_size_desktop;
+    }
+  }
+}
+
+article {
+  max-width: 700px;
+  line-height: 1.4em;
+  padding-left: 1em;
+  padding-right: 1em;
+  margin: 0 auto;
+
+  @media only screen and (min-width: $break_point) {
+    font-size: $default_font_size_desktop;
+    line-height: 1.5em;
+  }
+
+  h1,h2,h3,h4,h5,h6 {
+    font-family: 'Raleway','wt011',sans-serif;
+    margin-bottom: 0.5em;
+    color: #049372;
+    line-height: 1.2em;
+  }
+
+  h1 {
+    font-size: 24pt;
+  }
+
+  h2 {
+    font-size: 22pt;
+  }
+
+  h3 {
+    font-size: 21pt;
+  }
+
+  h4 {
+    font-size: 20pt;
+  }
+
+  h5 {
+    font-size: 19pt;
+  }
+
+  h6 {
+    font-size: 18pt;
+  }
+
+  img {
+    display: block;
+    max-width: 90%;
+    margin: 0 auto;
+    margin-bottom: 1em;
+    box-shadow: 3px 3px 15px $shadow_color;
+  }
+
+  p,pre {
+    margin-bottom: 1.5em;
+  }
+
+  pre,code {
+    font-family: 'Courier New',monospace;
+    font-size: $cell_font_size;
+    overflow: scroll;
+  }
+
+  pre {
+    line-height: $cell_line_height;
+    border: 1px solid $cell_border_color;
+    padding: 1em;
+    background-color: $cell_bg_color;
+  }
+
+  code {
+    vertical-align: middle;
+  }
+
+  >table {
+    margin: 0 auto;
+    font-size: $cell_font_size;
+    line-height: $cell_line_height;
+    margin-bottom: 1em;
+    text-align: center;
+  }
+
+  >table thead {
+    font-family: 'Raleway','wt011',sans-serif;
+    background-color: $cell_bg_color;
+  }
+
+  >table td {
+    padding: 0.25em 0.5em;
+    border: 1px solid $cell_border_color;
+  }
+
+}
+
+footer {
+  font-size: 10pt;
+  padding: 1.6em;
+}
+
+#disqus_thread {
+  max-width: 700px;
+  margin: 0 auto;
+  margin-top: 1em;
+  padding: 1em;
+}
+
+.gist {
+  font-size: 10pt;
+  line-height: $cell_font_size;
+}
+
+.has-jax {
+  font-size: 18pt;
+  line-height: 1;
+}
