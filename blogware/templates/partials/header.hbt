@@ -13,17 +13,15 @@
 	</head>
 	<body>
 		<header>
-			<div class="logo">jasonkit</div>
+            <div class="logo"><a href="../../">jasonkit</a></div>
             <div class="menu-icon"></div>
 			<nav>
 				<ul>
                     {{#if chinese}}
-					<li><a href="#">主頁</a></li>
-					<li><a href="../../pages/archive_zh">文章</a></li>
-					<li><a href="../../pages/about_zh">關於</a></li>
+					<li><a href="../../pages/archive-zh">文章</a></li>
+					<li><a href="../../pages/about-zh">關於</a></li>
                     {{else}}
-					<li><a href="#">home</a></li>
-					<li><a href="../../pages/archive">archive</a></li>
+					<li><a href="../../pages/archive">blog</a></li>
 					<li><a href="../../pages/about">about</a></li>
                     {{/if}} 
 				</ul>

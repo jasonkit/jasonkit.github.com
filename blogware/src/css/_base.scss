@@ -1,13 +1,21 @@
-$bg_color   : #F9F9F9;
-$text_color : #333333;
-$text_color_highlight : rgba(51, 51, 51, 0.6);
-$header_bg_color      : rgba(255,255,255,0.7);
-$cell_bg_color        : rgba(230, 230, 230, 0.3);
-$cell_border_color    : rgba(200, 200, 200, 0.5);
-$shadow_color         : rgba(128, 128, 128, 0.5);
+// Color
+$bg_color             : #F6F6F6;
+$title_text_color     : #555555;
+$headline_text_color  : #F73161;
+$text_color           : #333333;
+$text_color_highlight         : rgba(51, 51, 51, 0.6);
+$header_bg_color              : rgba(104, 212, 41, 0.95);
+$header_text_color            : rgba(249, 249, 249, 0.9);
+$header_text_color_highlight  : rgba(255, 255, 255, 1);
+$cell_bg_color                : rgba(230, 230, 230, 0.3);
+$cell_border_color            : rgba(200, 200, 200, 0.5);
+$shadow_color                 : rgba(128, 128, 128, 0.5);
 
+// Geometry
 $header_height: 25px;
 $header_height_desktop: 40px;
+$logo_font_size: 12pt;
+$logo_font_size_desktop: 18pt;
 
 @if $is_chinese == true {
   $default_font_size: 14pt;
@@ -19,7 +27,6 @@ $header_height_desktop: 40px;
 
 $cell_font_size: 12pt;
 $cell_line_height: 14pt;
-
 $break_point: 500px;
 
 @import url(http://fonts.googleapis.com/css?family=Lato:300);
@@ -59,12 +66,6 @@ a:hover {
   color: $text_color_highlight;
 }
 
-a:hover:before {
-  position: absolute;
-  left: -0.5em;
-  content: "»";
-}
-
 header {
   position: absolute;
   top: 0;
@@ -72,21 +73,25 @@ header {
   right: 0;
   width: 100%;
   background-color: $header_bg_color;
-  color: $text_color;
+  color: $header_text_color;
   width: 100%;
   overflow: auto;
+
+  a:hover {
+    color: $header_text_color_highlight;
+  }
 
   .logo {
     @include disable_select();
     font-family: 'Quicksand',sans-serif;
     line-height: $header_height;
-    padding-left: 0.5em;
-    font-size: $default_font_size;
+    padding-left: $default_font_size;
+    font-size: $logo_font_size;
     
     @media only screen and (min-width: $break_point) {
       float: left;
-      font-size: $default_font_size_desktop;
-      padding-left: 1em;
+      font-size: $logo_font_size_desktop;
+      padding-left: $default_font_size_desktop;
       line-height: $header_height_desktop;
     }
   }
@@ -100,7 +105,7 @@ header {
     box-sizing: border-box;
     width: 17px;
     height: 15px;
-    background: linear-gradient($text_color, $text_color 20%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 40%, $text_color 40%, $text_color 60%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 80%, $text_color 80%, $text_color 100%);
+    background: linear-gradient($header_text_color, $header_text_color 20%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 40%, $header_text_color 40%, $header_text_color 60%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 80%, $header_text_color 80%, $header_text_color 100%);
     
     @media only screen and (min-width: $break_point) {
       display: none;
@@ -108,7 +113,7 @@ header {
   }
 
   .menu-icon:hover {
-    background: linear-gradient($text_color_highlight, $text_color_highlight 20%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 40%, $text_color_highlight 40%, $text_color_highlight 60%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 80%, $text_color_highlight 80%, $text_color_highlight 100%);
+    background: linear-gradient($header_text_color_highlight, $header_text_color_highlight 20%, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0) 40%, $header_text_color_highlight 40%, $header_text_color_highlight 60%, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0) 80%, $header_text_color_highlight 80%, $header_text_color_highlight 100%);
   }
 
   nav {
@@ -118,13 +123,18 @@ header {
     @media only screen and (min-width: $break_point) {
       display: block;
       float: right;
-      font-size: $default_font_size_desktop;
       padding-right: 1em;
+    }
+    
+    a:hover:before {
+      position: absolute;
+      left: -0.5em;
+      content: "»";
     }
   }
 
   nav ul {
-    border-top: 1px solid $text_color_highlight;
+    border-top: 1px solid $header_text_color_highlight;
     padding-top: 10px;
     
     @media only screen and (min-width: $break_point) {
@@ -136,7 +146,8 @@ header {
   nav ul li {
     text-align: center;
     margin-bottom: 10px;
-    
+    font-size: 18pt;
+    line-height: 26pt;
     @media only screen and (min-width: $break_point) {
       margin-bottom: 0px;
       font-size: 14pt;
@@ -148,42 +159,23 @@ header {
 }
 
 .article_header {
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: center top;
-  position: relative;
-  width: 100%;
-  z-index: -1;
-  padding-top: 50%;
-  margin-bottom: .5em;
-
-  @media only screen and (min-width: $break_point) {
-    margin-bottom: 2em;
-  }
-}
-
-.article_header_content {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-color: $header_bg_color;
   padding-left: 1em;
   padding-right: 1em;
-  padding-top: 0.25em;
+  padding-top: 0.5em;
   padding-bottom: 0.25em;
   margin-bottom: 0.5em;
+  margin-top: $header_height;
   
   @media only screen and (min-width: $break_point) {
+    margin-top: $header_height_desktop;
     margin-bottom: 0em;
     padding-top: 1em;
     padding-bottom: 1em;
   }
 
   h1 {
-    color: $text_color;
+    color: $title_text_color;
     font-family: 'Raleway','wt011',sans-serif;
-    font-size: $default_font_size_desktop;
     font-size: 22pt;
     
     @media only screen and (min-width: $break_point) {
@@ -200,27 +192,25 @@ header {
     
     @media only screen and (min-width: $break_point) {
       text-align: center;
-      font-size: $default_font_size_desktop;
     }
   }
 }
 
 article {
-  max-width: 700px;
+  max-width: 800px;
   line-height: 1.4em;
   padding-left: 1em;
   padding-right: 1em;
   margin: 0 auto;
 
   @media only screen and (min-width: $break_point) {
-    font-size: $default_font_size_desktop;
     line-height: 1.5em;
   }
 
   h1,h2,h3,h4,h5,h6 {
     font-family: 'Raleway','wt011',sans-serif;
     margin-bottom: 0.5em;
-    color: #049372;
+    color: $headline_text_color;
     line-height: 1.2em;
   }
 
@@ -300,6 +290,7 @@ article {
 footer {
   font-size: 10pt;
   padding: 1.6em;
+  text-align:center;
 }
 
 #disqus_thread {
