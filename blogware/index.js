@@ -31,13 +31,12 @@ var list_file = function(files, metalsmith, done){
 };
 
 Metalsmith(__dirname)
-    .clean(false)
     .use(collections({
         pages: {
-            pattern: "content/pages/*.md"
+            pattern: "pages/*.md"
         },
         posts: {
-            pattern: "content/posts/*.md",
+            pattern: "posts/*.md",
             sortBy: "date",
             reverse: true
         }
@@ -48,6 +47,6 @@ Metalsmith(__dirname)
     }))
     .use(templates("handlebars"))
     .use(sass({outputStyle: "expanded"}))
-    .destination("../")
+    .destination("../blog/")
     .use(list_file)
     .build();
