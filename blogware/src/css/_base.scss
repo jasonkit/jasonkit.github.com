@@ -17,12 +17,11 @@ $header_height_desktop: 40px;
 $logo_font_size: 12pt;
 $logo_font_size_desktop: 18pt;
 
+$default_font_size: 16pt;
+$default_font_size_desktop: 18pt;
 @if $is_chinese == true {
   $default_font_size: 14pt;
   $default_font_size_desktop: 16pt;
-}@else{
-  $default_font_size: 16pt;
-  $default_font_size_desktop: 18pt;
 }
 
 $cell_font_size: 12pt;
