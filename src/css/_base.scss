@@ -170,7 +170,11 @@ header {
     color: $title_text_color;
     font-family: $title-font,sans-serif;
     font-size: 22pt;
-    
+   
+    @if $is_zh {
+      letter-spacing: 1px;
+    }
+
     @media only screen and (min-width: $break_point) {
       max-width: 800px;
       margin: 0 auto;
@@ -321,6 +325,15 @@ footer {
 .has-jax {
   font-size: 18pt;
   line-height: 1;
+}
+
+.footnotes {
+  padding-left:1em;
+}
+
+.footnote-ref {
+  vertical-align: super;
+  font-size: 0.7em;
 }
 
 @import "_xcode";

@@ -6,7 +6,7 @@
 	</body>
     
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script src="../../js/main.js"></script>
+    <script type="text/javascript" src="../../js/main.js"></script>
     
     {{#if use_math}}
     <script type="text/x-mathjax-config">
@@ -25,6 +25,15 @@
     </script>
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/mathjax/2.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     {{/if}}
-    
+   
+   {{#if auto_reload}}
+   <script type="text/javascript">
+        setInterval(function() {
+            $.ajax({url: window.location.toString()}).done(function(data){
+                $("article")[0].innerHTML = $(data).filter("article")[0].innerHTML;
+            });
+        }, 5000);
+   </script>
+   {{/if}}
 </html>
 
