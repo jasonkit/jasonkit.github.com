@@ -1,2 +1,11 @@
-$is_chinese: true;
+$is_zh: true;
+$font: 'SourceHanSansTW-ExtraLight';
+$title-font: 'SourceHanSansTW-ExtraLight';
+$font_file: 'SourceHanSansTW-ExtraLight.woff';
+
+@font-face {
+  font-family: $font;
+  src: local($font) url($font_file) format('woff');
+}
+
 @import "_base";

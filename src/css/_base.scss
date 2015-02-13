@@ -10,6 +10,7 @@ $header_text_color_highlight  : rgba(255, 255, 255, 1);
 $cell_bg_color                : rgba(230, 230, 230, 0.3);
 $cell_border_color            : rgba(200, 200, 200, 0.5);
 $shadow_color                 : rgba(128, 128, 128, 0.5);
+$link_color                   : rgba(146,85,237,1);
 
 // Geometry
 $header_height: 25px;
@@ -19,7 +20,8 @@ $logo_font_size_desktop: 18pt;
 
 $default_font_size: 16pt;
 $default_font_size_desktop: 18pt;
-@if $is_chinese == true {
+
+@if $is_zh == true {
   $default_font_size: 14pt;
   $default_font_size_desktop: 16pt;
 }
@@ -28,16 +30,8 @@ $cell_font_size: 12pt;
 $cell_line_height: 14pt;
 $break_point: 500px;
 
-@import url(http://fonts.googleapis.com/css?family=Lato:300);
-@import url(http://fonts.googleapis.com/css?family=Raleway:500);
 @import url(http://fonts.googleapis.com/css?family=Quicksand:400);
 
-@if $is_chinese == true {
-  @font-face {
-    font-family: 'wt011';
-    src: url("wt011.woff") format('woff');
-  }
-}
 
 @import "_reset";
 
@@ -162,7 +156,7 @@ header {
   padding-right: 1em;
   padding-top: 0.5em;
   padding-bottom: 0.25em;
-  margin-bottom: 0.5em;
+  margin-bottom: 1em;
   margin-top: $header_height;
   
   @media only screen and (min-width: $break_point) {
@@ -174,7 +168,7 @@ header {
 
   h1 {
     color: $title_text_color;
-    font-family: 'Raleway','wt011',sans-serif;
+    font-family: $title-font,sans-serif;
     font-size: 22pt;
     
     @media only screen and (min-width: $break_point) {
@@ -187,30 +181,40 @@ header {
   time {
     display: block;
     color: $text_color;
-    margin-top: 0.5em;
+    margin-top: 1em;
     font-size: 14pt;
-    
+    text-align: right;
+
     @media only screen and (min-width: $break_point) {
       max-width: 800px;
       margin: 0 auto;
-      margin-top: 1em;
+      margin-top: 1.5em;
     }
   }
 }
 
 article {
   max-width: 800px;
+  
   line-height: 1.4em;
   padding-left: 1em;
   padding-right: 1em;
   margin: 0 auto;
 
+  @if $is_zh {
+      letter-spacing: 1px;
+  }
+
   @media only screen and (min-width: $break_point) {
-    line-height: 1.5em;
+    @if $is_zh {
+      line-height: 1.7em;
+    } @else {
+      line-height: 1.5em;
+    }
   }
 
   h1,h2,h3,h4,h5,h6 {
-    font-family: 'Raleway','wt011',sans-serif;
+    font-family: $title-font,sans-serif;
     margin-bottom: 0.5em;
     color: $headline_text_color;
     line-height: 1.2em;
@@ -278,7 +282,7 @@ article {
   }
 
   >table thead {
-    font-family: 'Raleway','wt011',sans-serif;
+    font-family: $title-font,sans-serif;
     background-color: $cell_bg_color;
   }
 
@@ -289,6 +293,10 @@ article {
 
   ol, ul {
     padding-left: 1em;
+  }
+  
+  a {
+    color: $link_color;
   }
 }
 

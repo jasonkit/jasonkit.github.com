@@ -30,7 +30,7 @@ time, mark, audio, video {
 body {
     background-color: $bg_color;
     color           : $text_color;
-    font-family     : 'Lato', 'wt011', sans-serif;
+    font-family     : $font, sans-serif;
     font-size       : $default_font_size;
     @media only screen and (min-width: $break_point) {
       font-size       : $default_font_size_desktop;
