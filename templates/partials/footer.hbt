@@ -34,8 +34,8 @@
                 $("article")[0].innerHTML = $(data).filter("article")[0].innerHTML;
                 {{#if math}}
                 MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+                window.scrollTo(0, document.body.scrollHeight);
                 {{/if}}
-                window.scrollTo(0,document.body.scrollHeight);
             });
         }, 5000);
    </script>
