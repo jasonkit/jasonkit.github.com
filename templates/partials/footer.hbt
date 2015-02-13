@@ -8,13 +8,14 @@
     <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="../../js/main.js"></script>
     
-    {{#if use_math}}
+    {{#if math}}
     <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
             tex2jax: {
                 inlineMath: [['$','$'], ['\\(','\\)']],
                 skipTags: ['script', 'noscript', 'style', 'textarea']
-           }
+           },
+           messageStyle: "none"
         });
         MathJax.Hub.Queue(function() {
             var all = MathJax.Hub.getAllJax(), i;
@@ -31,6 +32,10 @@
         setInterval(function() {
             $.ajax({url: window.location.toString()}).done(function(data){
                 $("article")[0].innerHTML = $(data).filter("article")[0].innerHTML;
+                {{#if math}}
+                MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+                {{/if}}
+                window.scrollTo(0,document.body.scrollHeight);
             });
         }, 5000);
    </script>
