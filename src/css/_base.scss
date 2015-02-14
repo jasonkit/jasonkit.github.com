@@ -21,6 +21,8 @@ $logo_font_size_desktop: 18pt;
 $default_font_size: 16pt;
 $default_font_size_desktop: 18pt;
 
+$footnote_size: 12pt;
+
 @if $is_zh == true {
   $default_font_size: 14pt;
   $default_font_size_desktop: 16pt;
@@ -30,8 +32,8 @@ $cell_font_size: 12pt;
 $cell_line_height: 14pt;
 $break_point: 500px;
 
+// Font for logo
 @import url(http://fonts.googleapis.com/css?family=Quicksand:400);
-
 
 @import "_reset";
 
@@ -168,9 +170,11 @@ header {
 
   h1 {
     color: $title_text_color;
-    font-family: $title-font,sans-serif;
+    font-family: $title_font,sans-serif;
     font-size: 22pt;
-   
+    text-shadow: 0px 0px 2px $shadow_color;
+    line-height: 1.5em;
+    
     @if $is_zh {
       letter-spacing: 1px;
     }
@@ -218,7 +222,7 @@ article {
   }
 
   h1,h2,h3,h4,h5,h6 {
-    font-family: $title-font,sans-serif;
+    font-family: $title_font,sans-serif;
     margin-bottom: 0.5em;
     color: $headline_text_color;
     line-height: 1.2em;
@@ -286,7 +290,7 @@ article {
   }
 
   >table thead {
-    font-family: $title-font,sans-serif;
+    font-family: $title_font,sans-serif;
     background-color: $cell_bg_color;
   }
 
@@ -329,6 +333,7 @@ footer {
 
 .footnotes {
   padding-left:1em;
+  font-size: $footnote_size; 
 }
 
 .footnote-ref {
