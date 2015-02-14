@@ -333,7 +333,20 @@ footer {
 
 .footnotes {
   padding-left:1em;
-  font-size: $footnote_size; 
+  font-size: $footnote_size;
+  line-height: 1.5em;
+  
+  .footnote-item {
+    line-height: 1.5em;
+
+    p {
+      margin:0;
+    }
+  }
+
+  .footnote-item:not(:last-child) {
+    margin-bottom: 1em;
+}
 }
 
 .footnote-ref {
