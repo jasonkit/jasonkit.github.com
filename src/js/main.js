@@ -1,3 +1,5 @@
+$ = require("jquery");
+
 function on_resize()
 {
     if ($(this).width() > 500) {

@@ -260,6 +260,10 @@ article {
     box-shadow: 3px 3px 15px $shadow_color;
   }
 
+  img.latex {
+    box-shadow: none;
+  }
+
   p,pre {
     margin-bottom: 1.5em;
   }

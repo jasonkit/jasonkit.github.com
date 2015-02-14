@@ -9,7 +9,8 @@
         {{else}}
 		<link rel="stylesheet" href="../../css/style.css"/>
         {{/if}}
-		<title>Test Post</title>	
+        
+        <title>{{title}} | jasonkit</title>	
 	</head>
 	<body>
 		<header>
