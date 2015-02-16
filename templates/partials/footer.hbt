@@ -9,11 +9,7 @@
     
    {{#if auto_reload}}
    <script type="text/javascript">
-        setInterval(function() {
-            $.ajax({url: window.location.toString(), cache:false}).done(function(data){
-                $("article")[0].innerHTML = $(data).filter("article")[0].innerHTML;
-            });
-        }, 5000);
+        window.auto_reload();
    </script>
    {{/if}}
 </html>

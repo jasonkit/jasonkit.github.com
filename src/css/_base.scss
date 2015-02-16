@@ -11,7 +11,7 @@ $cell_bg_color                : rgba(230, 230, 230, 0.3);
 $cell_border_color            : rgba(200, 200, 200, 0.5);
 $shadow_color                 : rgba(128, 128, 128, 0.5);
 $link_color                   : rgba(146,85,237,1);
-
+$em_color                     : rgba(218,32,39,1);
 // Geometry
 $header_height: 25px;
 $header_height_desktop: 40px;
@@ -224,6 +224,7 @@ article {
   h1,h2,h3,h4,h5,h6 {
     font-family: $title_font,sans-serif;
     margin-bottom: 0.5em;
+    margin-top: 0.5em;
     color: $headline_text_color;
     line-height: 1.2em;
   }
@@ -265,7 +266,7 @@ article {
   }
 
   p,pre {
-    margin-bottom: 1.5em;
+    margin-bottom: 1em;
   }
 
   pre,code {
@@ -305,10 +306,16 @@ article {
 
   ol, ul {
     padding-left: 1em;
+    margin-bottom: 1em;
   }
   
   a {
     color: $link_color;
+  }
+
+  em {
+    font-style: normal;
+    color: $em_color;
   }
 }
 
